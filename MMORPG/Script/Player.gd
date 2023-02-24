@@ -2,10 +2,13 @@ extends Node2D
 
 const SPEED : = 70.0
 var path : = PoolVector2Array() setget set_path
-onready var animator : AnimationPlayer  = get_node("AnimationPlayer")
+var nametag  : String = ""
 var is_moving : bool
+
 var  current_animation : String = ""
+onready var animator : AnimationPlayer  = get_node("AnimationPlayer")
 onready var chat_bubble : Node2D = get_node("SpeechBubble")
+onready var nametag_label : Label = get_node("nametag")
 
 #to delete
 var ale = 1
@@ -25,7 +28,7 @@ func _input(event):
 		return
 	if event.button_index !=  BUTTON_RIGHT or not event.pressed:
 		return
-	set_up_design()
+	set_up_design([0,0,0,0,0])
 
 func move_along_path(distance : float) -> void :
 	var start_point : = position
@@ -87,22 +90,17 @@ func react(index :int) -> void:
 
 #ajouter le paramètre qui comporte la composition du composite sprite
 #donc à ramener de la BDD du serveur
-func set_up_design() -> void:
-	rand_seed(ale)
-	ale = ale + 1
+func set_up_design(composites) -> void:
+
+	$CompositeSprite/body.texture = CompositeCharacter.body_spritesheet[composites[0]]
 	
-	var v : int = rand_range(0, CompositeCharacter.body_spritesheet.size()) 
-	$CompositeSprite/body.texture = CompositeCharacter.body_spritesheet[v]
+	$CompositeSprite/hair.texture = CompositeCharacter.hair_spritesheet[composites[1]]
 	
-	v = rand_range(0, CompositeCharacter.hair_spritesheet.size()) 
-	$CompositeSprite/hair.texture = CompositeCharacter.hair_spritesheet[v]
+	$CompositeSprite/accessory.texture = CompositeCharacter.accessory_spritesheet[composites[2]]
 	
-	v = rand_range(0, CompositeCharacter.accessory_spritesheet.size()) 
-	$CompositeSprite/accessory.texture = CompositeCharacter.accessory_spritesheet[v]
+	$CompositeSprite/shirt.texture = CompositeCharacter.shirt_spritesheet[composites[3]]
 	
-	v = rand_range(0, CompositeCharacter.shirt_spritesheet.size())
-	$CompositeSprite/shirt.texture = CompositeCharacter.shirt_spritesheet[v]
+	$CompositeSprite/pants.texture = CompositeCharacter.pants_spritesheet[composites[4]]
 	
-	v = rand_range(0, CompositeCharacter.pants_spritesheet.size())
-	$CompositeSprite/pants.texture = CompositeCharacter.pants_spritesheet[v]
-	
+func set_nametag(nametag : String) -> void :
+	nametag_label.text = nametag

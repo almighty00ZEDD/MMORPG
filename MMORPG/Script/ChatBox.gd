@@ -12,7 +12,7 @@ var groups = [
 ]
 
 var group_index : int  = 0
-var username = "marocaine"
+var username = "sakura"
 
 func _input(event):
 	if event is InputEventKey:

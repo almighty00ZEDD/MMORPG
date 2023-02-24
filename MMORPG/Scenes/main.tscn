@@ -1,10 +1,10 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://Sprites/16x16 Tileset.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/futile-pro-v1/FutilePro.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://Script/Demo.gd" type="Script" id=3]
 [ext_resource path="res://Script/Player.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/SpeechBubble.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Preloadable/SpeechBubble.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/Characters/Body/body2.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Characters/accessories/hat_witch.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Characters/clothes/pants/skirt2.png" type="Texture" id=8]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Fonts/liberation/LiberationSerif-Bold.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://Sprites/Characters/emoticons.png" type="Texture" id=14]
 [ext_resource path="res://Script/Emoji_clicked.gd" type="Script" id=15]
+[ext_resource path="res://Shaders/gradient_color_effect.gdshader" type="Shader" id=16]
 
 [sub_resource type="NavigationPolygon" id=2]
 vertices = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -1019,46 +1020,21 @@ tracks/4/keys = {
 resource_local_to_scene = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="Shader" id=24]
-code = "shader_type canvas_item;
-
-uniform vec4 gradient_color_1 : hint_color;
-uniform vec4 gradient_color_2 : hint_color;
-uniform vec4 gradient_color_3 : hint_color;
-uniform vec2 gradient_start;
-uniform vec2 gradient_end;
-
-void fragment() {
-    vec2 uv = UV;
-    float t = clamp(dot(uv - gradient_start, gradient_end - gradient_start) / pow(distance(gradient_start, gradient_end), 2.0), 0.0, 1.0);
-
-    vec4 color1 = mix(gradient_color_1, gradient_color_2, t);
-    vec4 color2 = mix(gradient_color_2, gradient_color_3, t);
-    float step_value = step(t, 0.5);
-    COLOR = mix(color1, color2, step_value);
-}
-"
-
 [sub_resource type="ShaderMaterial" id=25]
-shader = SubResource( 24 )
+shader = ExtResource( 16 )
 shader_param/gradient_color_1 = Color( 1, 0, 0, 1 )
 shader_param/gradient_color_2 = Color( 0.968627, 1, 0, 1 )
 shader_param/gradient_color_3 = Color( 0.215686, 1, 0, 1 )
-shader_param/gradient_start = Vector2( 1.289, -0.94 )
+shader_param/gradient_start = Vector2( 0.899, 2.489 )
 shader_param/gradient_end = Vector2( 0, 0 )
-
-[sub_resource type="StyleBoxFlat" id=19]
-bg_color = Color( 0.87451, 0.560784, 0.0588235, 1 )
-corner_radius_top_left = 13
-corner_radius_top_right = 13
 
 [sub_resource type="DynamicFont" id=20]
 size = 7
 font_data = ExtResource( 11 )
 
 [sub_resource type="StyleBoxFlat" id=22]
-content_margin_left = 3.0
-content_margin_top = 2.0
+content_margin_left = 7.0
+content_margin_top = 4.0
 bg_color = Color( 1, 0, 0, 0.392157 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
@@ -1070,9 +1046,40 @@ size = 7
 extra_spacing_space = 1
 font_data = ExtResource( 13 )
 
+[sub_resource type="StyleBoxFlat" id=42]
+content_margin_left = 6.0
+content_margin_top = 1.0
+bg_color = Color( 1, 0, 0, 0.623529 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="DynamicFont" id=18]
-size = 7
+size = 8
 font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=43]
+content_margin_left = 2.0
+content_margin_right = 2.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color( 1, 0, 0, 0.65098 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=44]
+content_margin_left = 2.0
+content_margin_right = 2.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color( 1, 0, 0, 0.858824 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id=23]
 resource_local_to_scene = true
@@ -1166,7 +1173,8 @@ format = 1
 tile_data = PoolIntArray( 65539, 22, 0, 65540, 22, 0, 131075, 22, 0, 131082, 22, 0, 131085, 22, 0, 196620, 26, 0, 196621, 26, 0, 196622, 26, 0, 262162, 22, 0, 262163, 22, 0, 262164, 22, 0, 327682, 22, 0, 327691, 22, 0, 327692, 22, 0, 327709, 22, 0, 393217, 22, 0, 393234, 25, 0, 393241, 25, 0, 393242, 33, 0, 393243, 32, 0, 393244, 31, 0, 458768, 25, 0, 458769, 25, 0, 458770, 25, 0, 458773, 26, 0, 458777, 25, 0, 458778, 36, 0, 458779, 35, 0, 458780, 34, 0, 458783, 25, 0, 524299, 25, 0, 524301, 26, 0, 524312, 25, 0, 524313, 25, 0, 524314, 39, 0, 524315, 38, 0, 524316, 37, 0, 524318, 25, 0, 589826, 22, 0, 589834, 25, 0, 589843, 25, 0, 589847, 25, 0, 589849, 25, 0, 589850, 43, 0, 589851, 41, 0, 589852, 40, 0, 589854, 25, 0, 655377, 22, 0, 655380, 25, 0, 655389, 25, 0, 655390, 25, 0, 720904, 25, 0, 720905, 25, 0, 720911, 22, 0, 720916, 25, 0, 720917, 26, 0, 720918, 26, 0, 720923, 26, 0, 720924, 25, 0, 720927, 22, 0, 786453, 25, 0, 786454, 25, 0, 786455, 25, 0, 851975, 22, 0, 851986, 26, 0, 851987, 25, 0, 851988, 25, 0, 851994, 25, 0, 851999, 22, 0, 917506, 22, 0, 917516, 26, 0, 917521, 25, 0, 917528, 25, 0, 917529, 25, 0, 917530, 22, 0, 983054, 25, 0, 983055, 25, 0, 983060, 26, 0, 1048586, 25, 0, 1048587, 25, 0, 1048590, 22, 0, 1048592, 22, 0, 1114115, 22, 0, 1114117, 22, 0, 1114140, 22, 0, 1114141, 22, 0 )
 
 [node name="Player" type="Node2D" parent="."]
-position = Vector2( 106, 38 )
+visible = false
+position = Vector2( 381, 58 )
 script = ExtResource( 4 )
 
 [node name="CompositeSprite" type="Node2D" parent="Player"]
@@ -1221,7 +1229,7 @@ margin_right = 66.0
 margin_bottom = -2.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_fonts/font = SubResource( 16 )
-text = "MAROCAINE"
+align = 1
 
 [node name="music_player" type="AudioStreamPlayer" parent="."]
 
@@ -1234,7 +1242,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_vertical = 0
 rect_min_size = Vector2( 600, 80 )
-custom_styles/panel = SubResource( 19 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel"]
 anchor_right = 1.0
@@ -1251,7 +1258,7 @@ script = ExtResource( 12 )
 
 [node name="MessagesDisplayer" type="RichTextLabel" parent="CanvasLayer/Panel/HBoxContainer/ChatBox"]
 margin_right = 250.0
-margin_bottom = 51.0
+margin_bottom = 58.0
 rect_min_size = Vector2( 200, 40 )
 focus_mode = 2
 size_flags_vertical = 3
@@ -1262,24 +1269,33 @@ scroll_following = true
 selection_enabled = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/HBoxContainer/ChatBox"]
-margin_top = 55.0
+margin_top = 62.0
 margin_right = 250.0
 margin_bottom = 73.0
 
 [node name="LineEdit" type="LineEdit" parent="CanvasLayer/Panel/HBoxContainer/ChatBox/HBoxContainer"]
-margin_right = 206.0
-margin_bottom = 18.5
+margin_right = 211.0
+margin_bottom = 11.0
 size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/minimum_spaces = 1
 custom_fonts/font = SubResource( 17 )
-text = "je suis content d'etre ici !!!!!"
+custom_styles/normal = SubResource( 42 )
+max_length = 90
+caret_blink = true
 
 [node name="Button" type="Button" parent="CanvasLayer/Panel/HBoxContainer/ChatBox/HBoxContainer"]
-margin_left = 210.0
-margin_right = 250.0
-margin_bottom = 18.0
+margin_left = 215.0
+margin_right = 250.5
+margin_bottom = 11.0
+rect_clip_content = true
 mouse_default_cursor_shape = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
 custom_fonts/font = SubResource( 18 )
+custom_styles/hover = SubResource( 43 )
+custom_styles/pressed = SubResource( 44 )
+custom_styles/normal = SubResource( 43 )
 text = "Envoyer"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Panel/HBoxContainer"]

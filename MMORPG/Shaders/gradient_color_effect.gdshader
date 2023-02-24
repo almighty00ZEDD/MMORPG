@@ -1,0 +1,17 @@
+shader_type canvas_item;
+
+uniform vec4 gradient_color_1 : hint_color;
+uniform vec4 gradient_color_2 : hint_color;
+uniform vec4 gradient_color_3 : hint_color;
+uniform vec2 gradient_start;
+uniform vec2 gradient_end;
+
+void fragment() {
+    vec2 uv = UV;
+    float t = clamp(dot(uv - gradient_start, gradient_end - gradient_start) / pow(distance(gradient_start, gradient_end), 2.0), 0.0, 1.0);
+
+    vec4 color1 = mix(gradient_color_1, gradient_color_2, t);
+    vec4 color2 = mix(gradient_color_2, gradient_color_3, t);
+    float step_value = step(t, 0.5);
+    COLOR = mix(color1, color2, step_value);
+}

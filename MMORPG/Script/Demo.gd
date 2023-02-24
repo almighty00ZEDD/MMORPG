@@ -5,9 +5,11 @@ onready var nav2D  : Navigation2D = $Navigation2D
 #la manipulation des joueurs se passe ici!!!
 onready var player : Node2D = get_node("Player")
 onready var chat_box : VBoxContainer = get_node("CanvasLayer/Panel/HBoxContainer/ChatBox")
+onready var player_packed : PackedScene = preload("res://Preloadable/characters/Player.tscn")
 	
 func _ready():
 	chat_box.connect("player_spoke",self,"on_player_spoke")
+	build_character([3,9,5,12,3], "sakura")
 
 func _unhandled_input(event : InputEvent) -> void:
 	if not event is InputEventMouseButton :
@@ -23,3 +25,12 @@ func on_player_spoke(text : String) :
 
 func on_emoji_clicked(index) -> void :
 	player.react(index)
+
+func build_character(composites,nametag) -> void :
+	var inst : Node2D = player_packed.instance()
+	inst.set_up_design(composites)
+	inst.position = Vector2.ONE * 150
+	player = inst
+	add_child(inst)
+	player.set_nametag(nametag)
+	
