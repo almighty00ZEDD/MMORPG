@@ -18,11 +18,11 @@ var _current_map : String
 
 signal previous_presences
 signal presences_disconnections
-signal new_presence(id,nickname)
+signal new_presence(id,composite,nickname)
 
 
 signal match_start(server_seed)
-signal pos_received
+signal pos_received(id,pos)
 
 #enumeration des differents codes de communication client  et serveur
 enum OpCodes {
@@ -38,7 +38,7 @@ func authentificate_async(id) -> int:
 	var deviceid = OS.get_unique_id()
 	
 	#var test_session : NakamaSession = yield(_client.authenticate_device_async(deviceid,null,true),"completed")
-	var test_session : NakamaSession = yield(_client.authenticate_custom_async(id + "nakama_player",null,true),"completed")
+	var test_session : NakamaSession = yield(_client.authenticate_custom_async(id + "nakama_playerww",null,true),"completed")
 	if not test_session.is_exception():
 		_session =  test_session
 	return result
@@ -63,20 +63,17 @@ func connect_to_server_async() -> int:
 func _on_nakama_socket_closed() -> void:
 	_socket = null
 
-func join_map(map : String, composite : Array, nickname : String):
+func join_map(map : String):
 	
 	_current_map = map
-	_composite = composite
-	_user_name = nickname
 	
 	var world :  NakamaAPI.ApiRpc = yield(_client.rpc_async(_session,"join_map",map),"completed")
 	if not world.is_exception():
 		_world_id = world.payload
 	else:
 		return("error world id  : %s  ---  exeption  :  %s" % [_world_id, world.get_exception().message])
-	
-	var metadata = {"composite" :  composite ,"nickname" : nickname}
-	var match_join_result : NakamaRTAPI.Match  = yield(_socket.join_match_async(_world_id,metadata),"completed")	
+
+	var match_join_result : NakamaRTAPI.Match  = yield(_socket.join_match_async(_world_id),"completed")
 	if match_join_result.is_exception():
 		var exception : NakamaException =  match_join_result.get_exception()
 		return("Error joining the match :   %s -  %s"  % [exception.status_code, exception.message])
@@ -108,52 +105,48 @@ func _on_NakamaSocket_received_match_state(match_state: NakamaRTAPI.MatchData)  
 	var raw := match_state.data
 
 	match code:
+		
 		OpCodes.PREVIOUS_PRESENCES:
 			var decoded: Dictionary = JSON.parse(raw).result
 			var presences: Dictionary = decoded.presences
 			var nicknames :  Dictionary = decoded.nicknames
-			var composite : Dictionary = decoded.composites
+			#var composites : Dictionary = decoded.composites
+			var positions : Dictionary = decoded.positions
 			
 			for id in presences.keys():
 				if not (id ==  get_user_id()) :
 					_presences[id]  = presences[id]
 					_nicknames[id]  =  nicknames[id]
-					_composites[id] = composite[id]
+					var copy:  Array = decoded.composites[id]
+					_composites[id] = []
+					_composites[id].append_array(copy)
+					_positions[id] = positions[id]
+			
+			emit_signal("previous_presences")
 
 				
-			emit_signal("previous_presences")
-	
 		OpCodes.NEW_PRESENCE:
 			var decoded: Dictionary = JSON.parse(raw).result
 			
 			if(decoded.id == get_user_id()):
-				_composites[decoded.id]  =  decoded.composite
-				_nicknames[decoded.id] =  _user_name
-				emit_signal("my_color_received",decoded.color)
+				_user_name = decoded.nickname
+				_composite.append_array(decoded.composite)
+			
 			else :
-				_presences[decoded.id] =  decoded.presence
 				_nicknames[decoded.id] =  decoded.nickname
 				_composites[decoded.id]  =  decoded.composite
-				emit_signal("new_presence",decoded.id,decoded.composite,decoded.nickname,"connected",0)
-			
-		OpCodes.READY_PRESENCE:
-			var decoded: Dictionary = JSON.parse(raw).result
-			
-			if not (decoded.id == get_user_id()) :
-				emit_signal("presence_ready",decoded.id)
+				emit_signal("new_presence",decoded.id,decoded.composite,decoded.nickname)
 				
 			
 		OpCodes.UPDATE_POSITION:
 			var decoded: Dictionary = JSON.parse(raw).result
 			
-			if not decoded.has("positions") :
+			if decoded.id == get_user_id() :
 				return
 			
-			for key in decoded.positions.keys() :
-				if not (key ==  get_user_id()):
-					_positions[key] = decoded.positions[key]
-				
-			emit_signal("pos_received")
+			else :
+				_positions[decoded.id] = decoded.pos
+				emit_signal("pos_received",decoded.id,decoded.pos)
 
 		
 		
@@ -164,9 +157,9 @@ func send_previous_joined_presences() -> void:
 		_socket.send_match_state_async(_world_id, OpCodes.PREVIOUS_PRESENCES, JSON.print(payload))
 
 #envoi des informations de presence de son personnage
-func send_my_presence_info() -> void:
+func send_my_presence_info(p_composite,p_nickname) -> void:
 	if _socket:
-		var payload := {id  =  get_user_id() , nickname = _user_name}
+		var payload := {id  =  get_user_id(), composite = p_composite, nickname = p_nickname}
 		_socket.send_match_state_async(_world_id, OpCodes.NEW_PRESENCE, JSON.print(payload))
 
 

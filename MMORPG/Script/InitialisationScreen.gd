@@ -4,6 +4,8 @@ onready var label = $Panel/Label
 onready var forrest_map : PackedScene = preload("res://Scenes/main.tscn")
 
 func _ready():
+	
+	NetworkManager.connect("previous_presences",self,"on_previous_presences_received")
 	var rng = RandomNumberGenerator.new()
 	rng.seed = (OS.get_unix_time())
 	var random_value = rng.randf_range(0, 200)
@@ -16,15 +18,28 @@ func _ready():
 	
 	label.text = "joining the game"
 	
-	var composite = [rng.randf(0,5),rng.randf(0,5),rng.randf(0,5),rng.randf(0,5),rng.randf(0,5)]
-	var nickname =  "PLAYER" + str(rng.randf(0,50))
-	yield(NetworkManager.join_map("forrest",composite,nickname),"completed")
+	var num = floor( 1 + rng.randf_range(0,5) )
+	var composite = [num,num,num,num,num]
+	var nickname =  "PLAYER" + str(rng.randf_range(0,50))
+	yield(NetworkManager.join_map("forrest"),"completed")
+	NetworkManager.send_previous_joined_presences()
+	NetworkManager.send_my_presence_info(composite,nickname)
 	
 	label.text = NetworkManager._world_id
 	
-	get_tree().change_scene_to(forrest_map)
+	#get_tree().change_scene_to(forrest_map)
 	
 	# Runtime RPC function caused an error","id":"join_map",
 	#"error":"/nakama/data/modules/world_rpc.lua:20: 
 	#attempt to index a non-table object(string) with key 
 	#'map_name'\nstack traceback:\n\t/nakama/data/modules/world_rpc.lua:20: 
+func _input(event):
+	if not event is InputEventMouseButton :
+		return
+	if event.button_index !=  BUTTON_RIGHT or not event.pressed:
+		return
+	print("my composite : ", NetworkManager._composite)
+	print("\nOTHERS : ", NetworkManager._composites)
+	
+func on_previous_presences_received() -> void :
+	get_tree().change_scene_to(forrest_map)

@@ -10,8 +10,6 @@ onready var animator : AnimationPlayer  = get_node("AnimationPlayer")
 onready var chat_bubble : Node2D = get_node("SpeechBubble")
 onready var nametag_label : Label = get_node("nametag")
 
-#to delete
-var ale = 1
 
 func _ready() -> void:
 	is_moving = false
@@ -22,13 +20,6 @@ func _process(delta : float) -> void:
 		move_along_path(move_distance)
 		CompositeCharacter
 
-#just to test the speech bubble
-func _input(event):
-	if not event is InputEventMouseButton :
-		return
-	if event.button_index !=  BUTTON_RIGHT or not event.pressed:
-		return
-	set_up_design([0,0,0,0,0])
 
 func move_along_path(distance : float) -> void :
 	var start_point : = position
@@ -91,7 +82,7 @@ func react(index :int) -> void:
 #ajouter le paramètre qui comporte la composition du composite sprite
 #donc à ramener de la BDD du serveur
 func set_up_design(composites) -> void:
-	
+
 	$CompositeSprite/body.texture = CompositeCharacter.body_spritesheet[int(composites[0])]
 	
 	$CompositeSprite/hair.texture = CompositeCharacter.hair_spritesheet[int(composites[1])]
