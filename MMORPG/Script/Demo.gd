@@ -10,6 +10,9 @@ onready var player_packed : PackedScene = preload("res://Preloadable/characters/
 func _ready():
 	chat_box.connect("player_spoke",self,"on_player_spoke")
 	build_character([3,9,5,12,3], "sakura")
+	
+	#server tests
+	NetworkManager.connect("previous_presences",self,"load_existing_players")
 
 func _unhandled_input(event : InputEvent) -> void:
 	if not event is InputEventMouseButton :
@@ -34,3 +37,14 @@ func build_character(composites,nametag) -> void :
 	add_child(inst)
 	player.set_nametag(nametag)
 	
+func build_player(composites,nametag) -> void :
+	var inst : Node2D = player_packed.instance()
+	inst.set_up_design(composites)
+	inst.position = Vector2.ONE * 150
+	player = inst
+	add_child(inst)
+	player.set_nametag(nametag)
+
+
+func load_existing_players() -> void :
+	pass

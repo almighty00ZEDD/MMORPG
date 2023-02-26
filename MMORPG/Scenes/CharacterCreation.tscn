@@ -5,7 +5,7 @@
 [ext_resource path="res://Sprites/Characters/clothes/pants/skirt2.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Characters/Hair/spacebuns2.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Characters/clothes/shirts/sporty9.png" type="Texture" id=5]
-[ext_resource path="res://PlayerPreveiw.gd" type="Script" id=6]
+[ext_resource path="res://Script/PlayerPreveiw.gd" type="Script" id=6]
 [ext_resource path="res://Shaders/gradient_color_effect.gdshader" type="Shader" id=7]
 
 [sub_resource type="ShaderMaterial" id=3]

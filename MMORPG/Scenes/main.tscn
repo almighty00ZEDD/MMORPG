@@ -1274,7 +1274,7 @@ margin_right = 250.0
 margin_bottom = 73.0
 
 [node name="LineEdit" type="LineEdit" parent="CanvasLayer/Panel/HBoxContainer/ChatBox/HBoxContainer"]
-margin_right = 211.0
+margin_right = 207.0
 margin_bottom = 11.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -1285,8 +1285,8 @@ max_length = 90
 caret_blink = true
 
 [node name="Button" type="Button" parent="CanvasLayer/Panel/HBoxContainer/ChatBox/HBoxContainer"]
-margin_left = 215.0
-margin_right = 250.5
+margin_left = 211.0
+margin_right = 250.0
 margin_bottom = 11.0
 rect_clip_content = true
 mouse_default_cursor_shape = 2
