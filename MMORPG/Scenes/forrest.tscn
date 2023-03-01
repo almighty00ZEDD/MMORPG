@@ -1,14 +1,14 @@
 [gd_scene load_steps=44 format=2]
 
-[ext_resource path="res://Sprites/16x16 Tileset.png" type="Texture" id=1]
-[ext_resource path="res://Fonts/futile-pro-v1/FutilePro.otf" type="DynamicFontData" id=2]
-[ext_resource path="res://Script/Demo.gd" type="Script" id=3]
-[ext_resource path="res://Fonts/liberation/LiberationSerif-Regular.ttf" type="DynamicFontData" id=11]
-[ext_resource path="res://Script/ChatBox.gd" type="Script" id=12]
-[ext_resource path="res://Fonts/liberation/LiberationSerif-Bold.ttf" type="DynamicFontData" id=13]
-[ext_resource path="res://Sprites/Characters/emoticons.png" type="Texture" id=14]
-[ext_resource path="res://Script/Emoji_clicked.gd" type="Script" id=15]
-[ext_resource path="res://Shaders/gradient_color_effect.gdshader" type="Shader" id=16]
+[ext_resource path="res://Fonts/futile-pro-v1/FutilePro.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Script/ChatBox.gd" type="Script" id=2]
+[ext_resource path="res://Shaders/gradient_color_effect.gdshader" type="Shader" id=3]
+[ext_resource path="res://Script/Demo.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/Characters/emoticons.png" type="Texture" id=5]
+[ext_resource path="res://Fonts/liberation/LiberationSerif-Bold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Script/Emoji_clicked.gd" type="Script" id=7]
+[ext_resource path="res://Fonts/liberation/LiberationSerif-Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Sprites/16x16 Tileset.png" type="Texture" id=9]
 
 [sub_resource type="NavigationPolygon" id=2]
 vertices = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -57,7 +57,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 
 [sub_resource type="TileSet" id=1]
 0/name = "16x16 Tileset.png 0"
-0/texture = ExtResource( 1 )
+0/texture = ExtResource( 9 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 16, 80, 16, 16 )
@@ -71,7 +71,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 0/shapes = [  ]
 0/z_index = 0
 1/name = "16x16 Tileset.png 1"
-1/texture = ExtResource( 1 )
+1/texture = ExtResource( 9 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 0, 0, 16, 16 )
@@ -86,7 +86,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 1/shapes = [  ]
 1/z_index = 0
 2/name = "16x16 Tileset.png 2"
-2/texture = ExtResource( 1 )
+2/texture = ExtResource( 9 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 16, 0, 16, 16 )
@@ -101,7 +101,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 2/shapes = [  ]
 2/z_index = 0
 3/name = "16x16 Tileset.png 3"
-3/texture = ExtResource( 1 )
+3/texture = ExtResource( 9 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 32, 0, 16, 16 )
@@ -116,7 +116,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 3/shapes = [  ]
 3/z_index = 0
 4/name = "16x16 Tileset.png 4"
-4/texture = ExtResource( 1 )
+4/texture = ExtResource( 9 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 0, 16, 16, 16 )
@@ -131,7 +131,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 4/shapes = [  ]
 4/z_index = 0
 5/name = "16x16 Tileset.png 5"
-5/texture = ExtResource( 1 )
+5/texture = ExtResource( 9 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 16, 16, 16, 16 )
@@ -146,7 +146,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 5/shapes = [  ]
 5/z_index = 0
 6/name = "16x16 Tileset.png 6"
-6/texture = ExtResource( 1 )
+6/texture = ExtResource( 9 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 32, 16, 16, 16 )
@@ -161,7 +161,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 6/shapes = [  ]
 6/z_index = 0
 7/name = "16x16 Tileset.png 7"
-7/texture = ExtResource( 1 )
+7/texture = ExtResource( 9 )
 7/tex_offset = Vector2( 0, 0 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 0, 32, 16, 16 )
@@ -176,7 +176,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 7/shapes = [  ]
 7/z_index = 0
 8/name = "16x16 Tileset.png 8"
-8/texture = ExtResource( 1 )
+8/texture = ExtResource( 9 )
 8/tex_offset = Vector2( 0, 0 )
 8/modulate = Color( 1, 1, 1, 1 )
 8/region = Rect2( 16, 32, 16, 16 )
@@ -191,7 +191,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 8/shapes = [  ]
 8/z_index = 0
 9/name = "16x16 Tileset.png 9"
-9/texture = ExtResource( 1 )
+9/texture = ExtResource( 9 )
 9/tex_offset = Vector2( 0, 0 )
 9/modulate = Color( 1, 1, 1, 1 )
 9/region = Rect2( 32, 32, 16, 16 )
@@ -206,7 +206,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 9/shapes = [  ]
 9/z_index = 0
 10/name = "16x16 Tileset.png 10"
-10/texture = ExtResource( 1 )
+10/texture = ExtResource( 9 )
 10/tex_offset = Vector2( 0, 0 )
 10/modulate = Color( 1, 1, 1, 1 )
 10/region = Rect2( 0, 64, 16, 16 )
@@ -220,7 +220,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 10/shapes = [  ]
 10/z_index = 0
 11/name = "16x16 Tileset.png 11"
-11/texture = ExtResource( 1 )
+11/texture = ExtResource( 9 )
 11/tex_offset = Vector2( 0, 0 )
 11/modulate = Color( 1, 1, 1, 1 )
 11/region = Rect2( 16, 64, 16, 16 )
@@ -234,7 +234,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 11/shapes = [  ]
 11/z_index = 0
 12/name = "16x16 Tileset.png 12"
-12/texture = ExtResource( 1 )
+12/texture = ExtResource( 9 )
 12/tex_offset = Vector2( 0, 0 )
 12/modulate = Color( 1, 1, 1, 1 )
 12/region = Rect2( 32, 64, 16, 16 )
@@ -248,7 +248,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 12/shapes = [  ]
 12/z_index = 0
 13/name = "16x16 Tileset.png 13"
-13/texture = ExtResource( 1 )
+13/texture = ExtResource( 9 )
 13/tex_offset = Vector2( 0, 0 )
 13/modulate = Color( 1, 1, 1, 1 )
 13/region = Rect2( 32, 80, 16, 16 )
@@ -262,7 +262,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 13/shapes = [  ]
 13/z_index = 0
 14/name = "16x16 Tileset.png 14"
-14/texture = ExtResource( 1 )
+14/texture = ExtResource( 9 )
 14/tex_offset = Vector2( 0, 0 )
 14/modulate = Color( 1, 1, 1, 1 )
 14/region = Rect2( 0, 80, 16, 16 )
@@ -276,7 +276,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 14/shapes = [  ]
 14/z_index = 0
 15/name = "16x16 Tileset.png 15"
-15/texture = ExtResource( 1 )
+15/texture = ExtResource( 9 )
 15/tex_offset = Vector2( 0, 0 )
 15/modulate = Color( 1, 1, 1, 1 )
 15/region = Rect2( 0, 96, 16, 16 )
@@ -290,7 +290,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 15/shapes = [  ]
 15/z_index = 0
 16/name = "16x16 Tileset.png 16"
-16/texture = ExtResource( 1 )
+16/texture = ExtResource( 9 )
 16/tex_offset = Vector2( 0, 0 )
 16/modulate = Color( 1, 1, 1, 1 )
 16/region = Rect2( 16, 96, 16, 16 )
@@ -304,7 +304,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 16/shapes = [  ]
 16/z_index = 0
 17/name = "16x16 Tileset.png 17"
-17/texture = ExtResource( 1 )
+17/texture = ExtResource( 9 )
 17/tex_offset = Vector2( 0, 0 )
 17/modulate = Color( 1, 1, 1, 1 )
 17/region = Rect2( 32, 96, 16, 16 )
@@ -318,7 +318,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 17/shapes = [  ]
 17/z_index = 0
 18/name = "16x16 Tileset.png 18"
-18/texture = ExtResource( 1 )
+18/texture = ExtResource( 9 )
 18/tex_offset = Vector2( 0, 0 )
 18/modulate = Color( 1, 1, 1, 1 )
 18/region = Rect2( 0, 112, 16, 16 )
@@ -332,7 +332,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 18/shapes = [  ]
 18/z_index = 0
 19/name = "16x16 Tileset.png 19"
-19/texture = ExtResource( 1 )
+19/texture = ExtResource( 9 )
 19/tex_offset = Vector2( 0, 0 )
 19/modulate = Color( 1, 1, 1, 1 )
 19/region = Rect2( 64, 128, 16, 16 )
@@ -346,7 +346,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 19/shapes = [  ]
 19/z_index = 0
 20/name = "16x16 Tileset.png 20"
-20/texture = ExtResource( 1 )
+20/texture = ExtResource( 9 )
 20/tex_offset = Vector2( 0, 0 )
 20/modulate = Color( 1, 1, 1, 1 )
 20/region = Rect2( 80, 128, 16, 16 )
@@ -360,7 +360,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 20/shapes = [  ]
 20/z_index = 0
 21/name = "16x16 Tileset.png 21"
-21/texture = ExtResource( 1 )
+21/texture = ExtResource( 9 )
 21/tex_offset = Vector2( 0, 0 )
 21/modulate = Color( 1, 1, 1, 1 )
 21/region = Rect2( 96, 128, 16, 16 )
@@ -374,7 +374,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 21/shapes = [  ]
 21/z_index = 0
 22/name = "16x16 Tileset.png 22"
-22/texture = ExtResource( 1 )
+22/texture = ExtResource( 9 )
 22/tex_offset = Vector2( 0, 0 )
 22/modulate = Color( 1, 1, 1, 1 )
 22/region = Rect2( 112, 128, 16, 16 )
@@ -388,7 +388,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 22/shapes = [  ]
 22/z_index = 0
 23/name = "16x16 Tileset.png 23"
-23/texture = ExtResource( 1 )
+23/texture = ExtResource( 9 )
 23/tex_offset = Vector2( 0, 0 )
 23/modulate = Color( 1, 1, 1, 1 )
 23/region = Rect2( 128, 128, 16, 16 )
@@ -402,7 +402,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 23/shapes = [  ]
 23/z_index = 0
 24/name = "16x16 Tileset.png 24"
-24/texture = ExtResource( 1 )
+24/texture = ExtResource( 9 )
 24/tex_offset = Vector2( 0, 0 )
 24/modulate = Color( 1, 1, 1, 1 )
 24/region = Rect2( 112, 144, 16, 16 )
@@ -416,7 +416,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 24/shapes = [  ]
 24/z_index = 0
 25/name = "16x16 Tileset.png 25"
-25/texture = ExtResource( 1 )
+25/texture = ExtResource( 9 )
 25/tex_offset = Vector2( 0, 0 )
 25/modulate = Color( 1, 1, 1, 1 )
 25/region = Rect2( 64, 144, 16, 16 )
@@ -430,7 +430,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 25/shapes = [  ]
 25/z_index = 0
 26/name = "16x16 Tileset.png 26"
-26/texture = ExtResource( 1 )
+26/texture = ExtResource( 9 )
 26/tex_offset = Vector2( 0, 0 )
 26/modulate = Color( 1, 1, 1, 1 )
 26/region = Rect2( 80, 160, 16, 16 )
@@ -444,7 +444,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 26/shapes = [  ]
 26/z_index = 0
 27/name = "16x16 Tileset.png 27"
-27/texture = ExtResource( 1 )
+27/texture = ExtResource( 9 )
 27/tex_offset = Vector2( 0, 0 )
 27/modulate = Color( 1, 1, 1, 1 )
 27/region = Rect2( 96, 160, 16, 16 )
@@ -458,7 +458,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 27/shapes = [  ]
 27/z_index = 0
 28/name = "16x16 Tileset.png 28"
-28/texture = ExtResource( 1 )
+28/texture = ExtResource( 9 )
 28/tex_offset = Vector2( 0, 0 )
 28/modulate = Color( 1, 1, 1, 1 )
 28/region = Rect2( 96, 144, 16, 16 )
@@ -472,7 +472,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 28/shapes = [  ]
 28/z_index = 0
 29/name = "16x16 Tileset.png 29"
-29/texture = ExtResource( 1 )
+29/texture = ExtResource( 9 )
 29/tex_offset = Vector2( 0, 0 )
 29/modulate = Color( 1, 1, 1, 1 )
 29/region = Rect2( 112, 160, 16, 16 )
@@ -486,7 +486,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 29/shapes = [  ]
 29/z_index = 0
 30/name = "16x16 Tileset.png 30"
-30/texture = ExtResource( 1 )
+30/texture = ExtResource( 9 )
 30/tex_offset = Vector2( 0, 0 )
 30/modulate = Color( 1, 1, 1, 1 )
 30/region = Rect2( 128, 144, 16, 16 )
@@ -500,7 +500,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 30/shapes = [  ]
 30/z_index = 0
 31/name = "16x16 Tileset.png 31"
-31/texture = ExtResource( 1 )
+31/texture = ExtResource( 9 )
 31/tex_offset = Vector2( 0, 0 )
 31/modulate = Color( 1, 1, 1, 1 )
 31/region = Rect2( 32, 176, 16, 16 )
@@ -514,7 +514,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 31/shapes = [  ]
 31/z_index = 0
 32/name = "16x16 Tileset.png 32"
-32/texture = ExtResource( 1 )
+32/texture = ExtResource( 9 )
 32/tex_offset = Vector2( 0, 0 )
 32/modulate = Color( 1, 1, 1, 1 )
 32/region = Rect2( 16, 176, 16, 16 )
@@ -528,7 +528,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 32/shapes = [  ]
 32/z_index = 0
 33/name = "16x16 Tileset.png 33"
-33/texture = ExtResource( 1 )
+33/texture = ExtResource( 9 )
 33/tex_offset = Vector2( 0, 0 )
 33/modulate = Color( 1, 1, 1, 1 )
 33/region = Rect2( 0, 176, 16, 16 )
@@ -542,7 +542,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 33/shapes = [  ]
 33/z_index = 0
 34/name = "16x16 Tileset.png 34"
-34/texture = ExtResource( 1 )
+34/texture = ExtResource( 9 )
 34/tex_offset = Vector2( 0, 0 )
 34/modulate = Color( 1, 1, 1, 1 )
 34/region = Rect2( 32, 192, 16, 16 )
@@ -556,7 +556,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 34/shapes = [  ]
 34/z_index = 0
 35/name = "16x16 Tileset.png 35"
-35/texture = ExtResource( 1 )
+35/texture = ExtResource( 9 )
 35/tex_offset = Vector2( 0, 0 )
 35/modulate = Color( 1, 1, 1, 1 )
 35/region = Rect2( 16, 192, 16, 16 )
@@ -570,7 +570,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 35/shapes = [  ]
 35/z_index = 0
 36/name = "16x16 Tileset.png 36"
-36/texture = ExtResource( 1 )
+36/texture = ExtResource( 9 )
 36/tex_offset = Vector2( 0, 0 )
 36/modulate = Color( 1, 1, 1, 1 )
 36/region = Rect2( 0, 192, 16, 16 )
@@ -584,7 +584,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 36/shapes = [  ]
 36/z_index = 0
 37/name = "16x16 Tileset.png 37"
-37/texture = ExtResource( 1 )
+37/texture = ExtResource( 9 )
 37/tex_offset = Vector2( 0, 0 )
 37/modulate = Color( 1, 1, 1, 1 )
 37/region = Rect2( 32, 208, 16, 16 )
@@ -598,7 +598,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 37/shapes = [  ]
 37/z_index = 0
 38/name = "16x16 Tileset.png 38"
-38/texture = ExtResource( 1 )
+38/texture = ExtResource( 9 )
 38/tex_offset = Vector2( 0, 0 )
 38/modulate = Color( 1, 1, 1, 1 )
 38/region = Rect2( 16, 208, 16, 16 )
@@ -612,7 +612,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 38/shapes = [  ]
 38/z_index = 0
 39/name = "16x16 Tileset.png 39"
-39/texture = ExtResource( 1 )
+39/texture = ExtResource( 9 )
 39/tex_offset = Vector2( 0, 0 )
 39/modulate = Color( 1, 1, 1, 1 )
 39/region = Rect2( 0, 208, 16, 16 )
@@ -626,7 +626,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 39/shapes = [  ]
 39/z_index = 0
 40/name = "16x16 Tileset.png 40"
-40/texture = ExtResource( 1 )
+40/texture = ExtResource( 9 )
 40/tex_offset = Vector2( 0, 0 )
 40/modulate = Color( 1, 1, 1, 1 )
 40/region = Rect2( 32, 224, 16, 16 )
@@ -640,7 +640,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 40/shapes = [  ]
 40/z_index = 0
 41/name = "16x16 Tileset.png 41"
-41/texture = ExtResource( 1 )
+41/texture = ExtResource( 9 )
 41/tex_offset = Vector2( 0, 0 )
 41/modulate = Color( 1, 1, 1, 1 )
 41/region = Rect2( 16, 224, 16, 16 )
@@ -654,7 +654,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 41/shapes = [  ]
 41/z_index = 0
 42/name = "16x16 Tileset.png 42"
-42/texture = ExtResource( 1 )
+42/texture = ExtResource( 9 )
 42/tex_offset = Vector2( 0, 0 )
 42/modulate = Color( 1, 1, 1, 1 )
 42/region = Rect2( 0, 128, 16, 16 )
@@ -668,7 +668,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 42/shapes = [  ]
 42/z_index = 0
 43/name = "16x16 Tileset.png 43"
-43/texture = ExtResource( 1 )
+43/texture = ExtResource( 9 )
 43/tex_offset = Vector2( 0, 0 )
 43/modulate = Color( 1, 1, 1, 1 )
 43/region = Rect2( 0, 224, 16, 16 )
@@ -683,7 +683,7 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 43/z_index = 0
 
 [sub_resource type="ShaderMaterial" id=25]
-shader = ExtResource( 16 )
+shader = ExtResource( 3 )
 shader_param/gradient_color_1 = Color( 1, 0, 0, 1 )
 shader_param/gradient_color_2 = Color( 0.968627, 1, 0, 1 )
 shader_param/gradient_color_3 = Color( 0.215686, 1, 0, 1 )
@@ -692,7 +692,7 @@ shader_param/gradient_end = Vector2( 0, 0 )
 
 [sub_resource type="DynamicFont" id=20]
 size = 7
-font_data = ExtResource( 11 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="StyleBoxFlat" id=22]
 content_margin_left = 7.0
@@ -706,7 +706,7 @@ corner_radius_bottom_left = 10
 [sub_resource type="DynamicFont" id=17]
 size = 7
 extra_spacing_space = 1
-font_data = ExtResource( 13 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="StyleBoxFlat" id=42]
 content_margin_left = 6.0
@@ -719,7 +719,7 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="DynamicFont" id=18]
 size = 8
-font_data = ExtResource( 2 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=43]
 content_margin_left = 2.0
@@ -755,68 +755,68 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="AtlasTexture" id=28]
 resource_local_to_scene = true
-atlas = ExtResource( 14 )
+atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=27]
 resource_local_to_scene = true
-atlas = ExtResource( 14 )
+atlas = ExtResource( 5 )
 region = Rect2( 16, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 14 )
+atlas = ExtResource( 5 )
 region = Rect2( 32, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 14 )
+atlas = ExtResource( 5 )
 region = Rect2( 48, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 14 )
+atlas = ExtResource( 5 )
 region = Rect2( 64, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 14 )
+atlas = ExtResource( 5 )
 region = Rect2( 0, 16, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 14 )
+atlas = ExtResource( 5 )
 region = Rect2( 16, 16, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 14 )
+atlas = ExtResource( 5 )
 region = Rect2( 32, 16, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=35]
-atlas = ExtResource( 14 )
+atlas = ExtResource( 5 )
 region = Rect2( 48, 16, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 14 )
+atlas = ExtResource( 5 )
 region = Rect2( 64, 16, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=37]
-atlas = ExtResource( 14 )
+atlas = ExtResource( 5 )
 region = Rect2( 0, 32, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=38]
-atlas = ExtResource( 14 )
+atlas = ExtResource( 5 )
 region = Rect2( 16, 32, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=39]
-atlas = ExtResource( 14 )
+atlas = ExtResource( 5 )
 region = Rect2( 32, 32, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=40]
-atlas = ExtResource( 14 )
+atlas = ExtResource( 5 )
 region = Rect2( 48, 32, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=41]
-atlas = ExtResource( 14 )
+atlas = ExtResource( 5 )
 region = Rect2( 64, 32, 16, 16 )
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
@@ -855,7 +855,7 @@ margin_bottom = -4.0
 margin_right = 250.0
 margin_bottom = 73.0
 rect_min_size = Vector2( 250, 0 )
-script = ExtResource( 12 )
+script = ExtResource( 2 )
 
 [node name="MessagesDisplayer" type="RichTextLabel" parent="CanvasLayer/Panel/HBoxContainer/ChatBox"]
 margin_right = 250.0
@@ -925,7 +925,7 @@ rect_min_size = Vector2( 20, 20 )
 mouse_default_cursor_shape = 2
 texture_normal = SubResource( 28 )
 expand = true
-script = ExtResource( 15 )
+script = ExtResource( 7 )
 
 [node name="smiley2" type="TextureButton" parent="CanvasLayer/Panel/HBoxContainer/ScrollContainer/GridContainer"]
 margin_left = 26.0
@@ -935,7 +935,7 @@ rect_min_size = Vector2( 20, 20 )
 mouse_default_cursor_shape = 2
 texture_normal = SubResource( 27 )
 expand = true
-script = ExtResource( 15 )
+script = ExtResource( 7 )
 
 [node name="smiley3" type="TextureButton" parent="CanvasLayer/Panel/HBoxContainer/ScrollContainer/GridContainer"]
 margin_left = 52.0
@@ -945,7 +945,7 @@ rect_min_size = Vector2( 20, 20 )
 mouse_default_cursor_shape = 2
 texture_normal = SubResource( 29 )
 expand = true
-script = ExtResource( 15 )
+script = ExtResource( 7 )
 
 [node name="smiley4" type="TextureButton" parent="CanvasLayer/Panel/HBoxContainer/ScrollContainer/GridContainer"]
 margin_left = 78.0
@@ -955,7 +955,7 @@ rect_min_size = Vector2( 20, 20 )
 mouse_default_cursor_shape = 2
 texture_normal = SubResource( 30 )
 expand = true
-script = ExtResource( 15 )
+script = ExtResource( 7 )
 
 [node name="smiley5" type="TextureButton" parent="CanvasLayer/Panel/HBoxContainer/ScrollContainer/GridContainer"]
 margin_left = 104.0
@@ -965,7 +965,7 @@ rect_min_size = Vector2( 20, 20 )
 mouse_default_cursor_shape = 2
 texture_normal = SubResource( 31 )
 expand = true
-script = ExtResource( 15 )
+script = ExtResource( 7 )
 
 [node name="smiley6" type="TextureButton" parent="CanvasLayer/Panel/HBoxContainer/ScrollContainer/GridContainer"]
 margin_top = 24.0
@@ -975,7 +975,7 @@ rect_min_size = Vector2( 20, 20 )
 mouse_default_cursor_shape = 2
 texture_normal = SubResource( 32 )
 expand = true
-script = ExtResource( 15 )
+script = ExtResource( 7 )
 
 [node name="smiley7" type="TextureButton" parent="CanvasLayer/Panel/HBoxContainer/ScrollContainer/GridContainer"]
 margin_left = 26.0
@@ -986,7 +986,7 @@ rect_min_size = Vector2( 20, 20 )
 mouse_default_cursor_shape = 2
 texture_normal = SubResource( 33 )
 expand = true
-script = ExtResource( 15 )
+script = ExtResource( 7 )
 
 [node name="smiley8" type="TextureButton" parent="CanvasLayer/Panel/HBoxContainer/ScrollContainer/GridContainer"]
 margin_left = 52.0
@@ -997,7 +997,7 @@ rect_min_size = Vector2( 20, 20 )
 mouse_default_cursor_shape = 2
 texture_normal = SubResource( 34 )
 expand = true
-script = ExtResource( 15 )
+script = ExtResource( 7 )
 
 [node name="smiley9" type="TextureButton" parent="CanvasLayer/Panel/HBoxContainer/ScrollContainer/GridContainer"]
 margin_left = 78.0
@@ -1008,7 +1008,7 @@ rect_min_size = Vector2( 20, 20 )
 mouse_default_cursor_shape = 2
 texture_normal = SubResource( 35 )
 expand = true
-script = ExtResource( 15 )
+script = ExtResource( 7 )
 
 [node name="smiley10" type="TextureButton" parent="CanvasLayer/Panel/HBoxContainer/ScrollContainer/GridContainer"]
 margin_left = 104.0
@@ -1019,7 +1019,7 @@ rect_min_size = Vector2( 20, 20 )
 mouse_default_cursor_shape = 2
 texture_normal = SubResource( 36 )
 expand = true
-script = ExtResource( 15 )
+script = ExtResource( 7 )
 
 [node name="smiley11" type="TextureButton" parent="CanvasLayer/Panel/HBoxContainer/ScrollContainer/GridContainer"]
 margin_top = 48.0
@@ -1029,7 +1029,7 @@ rect_min_size = Vector2( 20, 20 )
 mouse_default_cursor_shape = 2
 texture_normal = SubResource( 37 )
 expand = true
-script = ExtResource( 15 )
+script = ExtResource( 7 )
 
 [node name="smiley12" type="TextureButton" parent="CanvasLayer/Panel/HBoxContainer/ScrollContainer/GridContainer"]
 margin_left = 26.0
@@ -1040,7 +1040,7 @@ rect_min_size = Vector2( 20, 20 )
 mouse_default_cursor_shape = 2
 texture_normal = SubResource( 38 )
 expand = true
-script = ExtResource( 15 )
+script = ExtResource( 7 )
 
 [node name="smiley13" type="TextureButton" parent="CanvasLayer/Panel/HBoxContainer/ScrollContainer/GridContainer"]
 margin_left = 52.0
@@ -1051,7 +1051,7 @@ rect_min_size = Vector2( 20, 20 )
 mouse_default_cursor_shape = 2
 texture_normal = SubResource( 39 )
 expand = true
-script = ExtResource( 15 )
+script = ExtResource( 7 )
 
 [node name="smiley14" type="TextureButton" parent="CanvasLayer/Panel/HBoxContainer/ScrollContainer/GridContainer"]
 margin_left = 78.0
@@ -1062,7 +1062,7 @@ rect_min_size = Vector2( 20, 20 )
 mouse_default_cursor_shape = 2
 texture_normal = SubResource( 40 )
 expand = true
-script = ExtResource( 15 )
+script = ExtResource( 7 )
 
 [node name="smiley15" type="TextureButton" parent="CanvasLayer/Panel/HBoxContainer/ScrollContainer/GridContainer"]
 margin_left = 104.0
@@ -1073,4 +1073,4 @@ rect_min_size = Vector2( 20, 20 )
 mouse_default_cursor_shape = 2
 texture_normal = SubResource( 41 )
 expand = true
-script = ExtResource( 15 )
+script = ExtResource( 7 )

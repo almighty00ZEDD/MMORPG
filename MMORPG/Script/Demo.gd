@@ -17,7 +17,11 @@ func _ready():
 	NetworkManager.connect("new_presence",self,"build_character")
 	build_player()
 	
+	yield(NetworkManager.join_chat_async(NetworkManager._current_map),"completed")
 	NetworkManager.connect("pos_received",self,"on_new_pos_received")
+	NetworkManager.connect("new_message_received",self,"on_new_message_received")
+	NetworkManager.connect("player_reacted",self,"on_player_reacted")
+	NetworkManager.connect("presences_disconnections",self,"on_presences_disconnections")
 	
 
 func _unhandled_input(event : InputEvent) -> void:
@@ -48,11 +52,12 @@ func build_player() -> void :
 func build_character(id,composite, nickname) -> void :
 	characters.id = id
 	var inst =  character_packed.instance()
+	add_child(inst)
 	inst.position = Vector2.ONE * 150
 	inst.set_up_design(composite)
 	inst.set_nametag(nickname)
 	characters[id]  =  inst
-	add_child(inst)
+
 
 func build_characters() -> void :
 	for id in NetworkManager._presences:
@@ -68,3 +73,25 @@ func build_characters() -> void :
 func on_new_pos_received(id , pos) :
 	var new_path := nav2D.get_simple_path(characters[id].position, Vector2(pos.x,pos.y))
 	characters[id].path = new_path
+
+func on_new_message_received(id, username, message) -> void :
+	if message.has("to") :
+		if message.to == NetworkManager._user_name :
+			chat_box.add_message(message.from,message.msg,1)
+	
+	else:
+		for key in characters :
+			if key == id :
+				characters[id].speak(message.msg)
+				chat_box.add_message(NetworkManager._nicknames[id],message.msg)
+
+func on_player_reacted(id, num) :
+	for key in  characters :
+		if key == id :
+			characters[id].react(num)
+
+func on_presences_disconnections( leaves : Array) -> void :
+	for id in leaves :
+		characters[id].queue_free()
+		characters.erase(id)
+		

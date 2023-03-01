@@ -1,7 +1,10 @@
 extends Control
 
 onready var label = $Panel/Label
-onready var forrest_map : PackedScene = preload("res://Scenes/main.tscn")
+onready var forrest_map : PackedScene = preload("res://Scenes/forrest.tscn")
+
+#tests
+var nicks :  Array  = ["marocaine","tandori","bruce lee","yaourt10","gaymer","al kaida girl","turkish whale", "im az satan"]
 
 func _ready():
 	
@@ -18,15 +21,18 @@ func _ready():
 	
 	label.text = "joining the game"
 	
+	rng.seed = (OS.get_unix_time() % 6)
 	var num = floor( 1 + rng.randf_range(0,5) )
 	var composite = [num,num,num,num,num]
-	var nickname =  "PLAYER" + str(rng.randf_range(0,50))
+	rng.seed = (OS.get_unix_time() % 6)
+	var nickname =  nicks[int(rng.randf_range(0,5))]
 	yield(NetworkManager.join_map("forrest"),"completed")
 	NetworkManager.send_previous_joined_presences()
 	NetworkManager.send_my_presence_info(composite,nickname)
 	
 	label.text = NetworkManager._world_id
-	
+
+
 	#get_tree().change_scene_to(forrest_map)
 	
 	# Runtime RPC function caused an error","id":"join_map",
@@ -43,3 +49,4 @@ func _input(event):
 	
 func on_previous_presences_received() -> void :
 	get_tree().change_scene_to(forrest_map)
+

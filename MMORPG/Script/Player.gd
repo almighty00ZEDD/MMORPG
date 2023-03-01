@@ -87,6 +87,7 @@ func speak(speech : String) -> void:
 
 func react(index :int) -> void:
 	chat_bubble.show_emoji(index)
+	NetworkManager.send_reaction(index)
 
 #ajouter le paramètre qui comporte la composition du composite sprite
 #donc à ramener de la BDD du serveur
