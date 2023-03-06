@@ -25,6 +25,7 @@ signal player_reacted(id,reaction_num)
 
 signal pos_received(id,pos)
 signal new_message_received(id,username,message)
+signal my_presence_notified
 #enumeration des differents codes de communication client  et serveur
 enum OpCodes {
 	PREVIOUS_PRESENCES = 1,
@@ -40,7 +41,7 @@ func authentificate_async(id) -> int:
 	var deviceid = OS.get_unique_id()
 	
 	#var test_session : NakamaSession = yield(_client.authenticate_device_async(deviceid,null,true),"completed")
-	var test_session : NakamaSession = yield(_client.authenticate_custom_async(id + "nakama_11",null,true),"completed")
+	var test_session : NakamaSession = yield(_client.authenticate_custom_async(id,null,true),"completed")
 	if not test_session.is_exception():
 		_session =  test_session
 	return result
@@ -82,6 +83,7 @@ func join_private_chat_async() -> int :
 		_socket.join_chat_async("private",NakamaSocket.ChannelType.Room,true,true)
 		,"completed"
 		)
+		
 	if not chat_join_result.is_exception() :
 		_channel_id = chat_join_result.id
 		return OK
@@ -196,6 +198,7 @@ func _on_NakamaSocket_received_match_state(match_state: NakamaRTAPI.MatchData)  
 			if(decoded.id == get_user_id()):
 				_user_name = decoded.nickname
 				_composite.append_array(decoded.composite)
+				emit_signal("my_presence_notified")
 			
 			else :
 				_nicknames[decoded.id] =  decoded.nickname

@@ -398,3 +398,7 @@ rect_min_size = Vector2( 150, 0 )
 rect_scale = Vector2( 0.5, 0.5 )
 custom_fonts/font = SubResource( 16 )
 align = 1
+
+[node name="Camera" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0

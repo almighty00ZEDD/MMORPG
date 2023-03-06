@@ -8,9 +8,21 @@ onready var characters : Dictionary
 onready var chat_box : VBoxContainer = get_node("CanvasLayer/Panel/HBoxContainer/ChatBox")
 onready var player_packed : PackedScene = preload("res://Preloadable/characters/Player.tscn")
 onready var character_packed : PackedScene = preload("res://Preloadable/characters/Character.tscn")
+onready var camLimits :  Position2D = get_node("camLimits")
 
+onready var btn1 : Button = get_node("CanvasLayer/Panel/HBoxContainer/VBoxContainer/Button")
+onready var btn2 : Button = get_node("CanvasLayer/Panel/HBoxContainer/VBoxContainer/Button2")
+
+var where_to : PackedScene 
+
+var prev_pres : bool = false
+var my_pres : bool = false
 
 func _ready():
+	
+	btn1.connect("pressed",self,"on_btn1_pressed")
+	btn2.connect("pressed",self,"on_btn2_pressed")
+	
 	chat_box.connect("player_spoke",self,"on_player_spoke")
 	build_characters()
 	
@@ -22,6 +34,9 @@ func _ready():
 	NetworkManager.connect("new_message_received",self,"on_new_message_received")
 	NetworkManager.connect("player_reacted",self,"on_player_reacted")
 	NetworkManager.connect("presences_disconnections",self,"on_presences_disconnections")
+	
+	NetworkManager.connect("previous_presences",self,"on_previous_presences")
+	NetworkManager.connect("my_presence_notified",self,"on_my_presence_notified")
 	
 
 func _unhandled_input(event : InputEvent) -> void:
@@ -48,6 +63,7 @@ func build_player() -> void :
 	player = inst
 	add_child(inst)
 	player.set_nametag(NetworkManager._user_name)
+	player.render(camLimits.position.x, camLimits.position.y)
 
 func build_character(id,composite, nickname) -> void :
 	characters.id = id
@@ -95,3 +111,53 @@ func on_presences_disconnections( leaves : Array) -> void :
 		characters[id].queue_free()
 		characters.erase(id)
 		
+func on_btn1_pressed() -> void :
+	match btn1.text :
+		"WINTER" : 
+			where_to = CompositeCharacter.winter
+			yield(NetworkManager.join_map("blizzard"),"completed")
+			NetworkManager.send_previous_joined_presences()
+			NetworkManager.send_my_presence_info(NetworkManager._composite,NetworkManager._user_name)
+		
+		"FORREST" :
+			where_to = CompositeCharacter.forrest
+			yield(NetworkManager.join_map("forrest"),"completed")
+			NetworkManager.send_previous_joined_presences()
+			NetworkManager.send_my_presence_info(NetworkManager._composite,NetworkManager._user_name) 
+		
+		"Bar" : 
+			where_to = CompositeCharacter.Bar
+			yield(NetworkManager.join_map("town"),"completed")
+			NetworkManager.send_previous_joined_presences()
+			NetworkManager.send_my_presence_info(NetworkManager._composite,NetworkManager._user_name)
+			
+func on_btn2_pressed() -> void :
+	match btn2.text :
+		"WINTER" : 
+			where_to = CompositeCharacter.winter
+			yield(NetworkManager.join_map("blizzard"),"completed")
+			NetworkManager.send_previous_joined_presences()
+			NetworkManager.send_my_presence_info(NetworkManager._composite,NetworkManager._user_name)
+		
+		"FORREST" :
+			where_to = CompositeCharacter.forrest
+			yield(NetworkManager.join_map("forrest"),"completed")
+			NetworkManager.send_previous_joined_presences()
+			NetworkManager.send_my_presence_info(NetworkManager._composite,NetworkManager._user_name) 
+		
+		"Bar" : 
+			where_to = CompositeCharacter.Bar
+			yield(NetworkManager.join_map("town"),"completed")
+			NetworkManager.send_previous_joined_presences()
+			NetworkManager.send_my_presence_info(NetworkManager._composite,NetworkManager._user_name)
+			
+
+func on_previous_presences() -> void :
+	prev_pres = true
+	if my_pres :
+		get_tree().change_scene_to(where_to)
+	
+func on_my_presence_notified() -> void :
+	my_pres = true
+	if prev_pres :
+		get_tree().change_scene_to(where_to)

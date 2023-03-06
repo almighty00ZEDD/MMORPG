@@ -5,6 +5,7 @@ onready var hair = $CompositeSprite/hair
 onready var accessory = $CompositeSprite/accessory
 onready var shirt = $CompositeSprite/shirt
 onready var pants = $CompositeSprite/pants
+onready var nametag : Label = get_node("Nametag")
 
 const composite_character = preload("res://Script/CompositeCharacter.gd")
 
@@ -13,7 +14,7 @@ var current_hair : int = 0
 var current_accessory : int = 0
 var current_shirt : int = 0
 var current_pants : int = 0
-
+var composite
 
 func _ready():
 	body.texture = composite_character.body_spritesheet[0]
@@ -88,3 +89,10 @@ func _on_previous_pants_button_up():
 func _on_next_pants_button_up():
 	current_pants = (current_pants + 1) % composite_character.pants_spritesheet.size()
 	pants.texture = composite_character.pants_spritesheet[current_pants]
+
+func setNameTag(name : String) -> void :
+	nametag.text = name
+
+func getComposite():
+	composite = [current_body,current_hair,current_accessory,current_shirt,current_pants]
+	return composite

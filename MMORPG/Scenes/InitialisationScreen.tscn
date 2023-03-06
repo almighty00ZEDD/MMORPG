@@ -19,3 +19,6 @@ margin_top = -7.0
 margin_bottom = 7.0
 align = 1
 valign = 1
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+timeout = 10.0

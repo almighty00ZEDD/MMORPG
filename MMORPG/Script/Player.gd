@@ -9,6 +9,7 @@ var  current_animation : String = ""
 onready var animator : AnimationPlayer  = get_node("AnimationPlayer")
 onready var chat_bubble : Node2D = get_node("SpeechBubble")
 onready var nametag_label : Label = get_node("nametag")
+onready var camera : Camera2D = get_node("Camera")
 
 #to delete
 var ale = 1
@@ -105,3 +106,11 @@ func set_up_design(composites) -> void:
 	
 func set_nametag(nametag : String) -> void :
 	nametag_label.text = nametag
+
+func render(limitX = 0, limitY = 0) -> void :
+	camera.current = true
+	if not (limitX == 0 and limitY == 0) :
+		camera.limit_left = 0
+		camera.limit_top  = 0
+		camera.limit_right = limitX
+		camera.limit_bottom = limitY

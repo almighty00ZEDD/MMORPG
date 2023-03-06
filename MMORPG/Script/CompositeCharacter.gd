@@ -1,5 +1,9 @@
 extends Node
 
+const forrest : PackedScene = preload("res://Scenes/forrest.tscn")
+const winter : PackedScene = preload("res://Scenes/Winter.tscn")
+const Bar : PackedScene = preload("res://Scenes/Bar.tscn")
+
 const body_spritesheet = {
 	0 : preload("res://Sprites/Characters/Body/body1.png"),
 	1 : preload("res://Sprites/Characters/Body/body2.png"),

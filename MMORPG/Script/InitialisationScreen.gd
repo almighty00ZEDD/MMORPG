@@ -1,11 +1,12 @@
 extends Control
 
 onready var label = $Panel/Label
-onready var forrest_map : PackedScene = preload("res://Scenes/forrest.tscn")
-
+onready var characterCreation : PackedScene = preload("res://Scenes/CharacterCreation.tscn")
+onready var httprequester : HTTPRequest = get_node("HTTPRequest")
 #tests
 var nicks :  Array  = ["marocaine","tandori","bruce lee","yaourt10","gaymer","al kaida girl","turkish whale", "im az satan"]
 
+"""
 func _ready():
 	
 	NetworkManager.connect("previous_presences",self,"on_previous_presences_received")
@@ -49,4 +50,37 @@ func _input(event):
 	
 func on_previous_presences_received() -> void :
 	get_tree().change_scene_to(forrest_map)
+"""
 
+func _ready():
+	label.text = "Authentication..."
+	
+	$HTTPRequest.connect("request_completed", self, "_on_request_completed")
+	#$HTTPRequest.request('http://localhost:3000/users/sessionID')
+	$HTTPRequest.request("https://jsonplaceholder.typicode.com/todos/1")
+	
+func _on_request_completed(result, response_code, headers, body):
+	if result == HTTPRequest.RESULT_SUCCESS:
+		print("Request completed successfully!")
+		print("Response code: ", response_code)
+		print("Headers: ", headers)
+	
+		var response_dict = parse_json(body.get_string_from_utf8())
+		print("Response body: ", response_dict)
+		
+		# Access the _id and userName members in the response_dict object
+		#var _id = response_dict["_id"]
+		#var username = response_dict["userName"]
+		
+		NetworkManager._user_name = "ZEDD" #replace with username
+		
+		label.text = "authentication"
+		yield(NetworkManager.authentificate_async("abracadabra"),"completed") #replace with id
+		
+		label.text = "Connection to the server..."
+		yield(NetworkManager.connect_to_server_async(),"completed")
+		
+		get_tree().change_scene_to(characterCreation)
+		
+	else:
+		label.text = "Request failed!"

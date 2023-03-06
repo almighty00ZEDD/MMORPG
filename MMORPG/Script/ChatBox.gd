@@ -28,7 +28,15 @@ func _ready():
 func add_message(from,text,group = 0) -> void :
 	
 	messages_displayer.bbcode_text += '[color=' + groups[group]['color'] +']'
-	messages_displayer.bbcode_text += '[u]' + from + '[/u] '
+	
+	match group :
+		0:
+			messages_displayer.bbcode_text += '[url=' + from + ']'+ from + '[/url] '
+		1:
+			messages_displayer.bbcode_text += "mp de " +'[url=' + from + ']'+ from + '[/url] '
+		2:
+			messages_displayer.bbcode_text += ' ' + from
+	
 	messages_displayer.bbcode_text += ' : ' + text
 	messages_displayer.bbcode_text += '[/color]'
 	messages_displayer.bbcode_text += '\n'
@@ -40,11 +48,15 @@ func on_text_entered(text : String)  -> void:
 	
 	var decomposed : Array = text.split(" ",false)
 	
-	if decomposed.size() > 3 :
+	if decomposed.size() >= 3 :
 		if (decomposed[0] == "/mp") and decomposed[1] != "" and decomposed[2] != "":
-			yield(NetworkManager.send_private_message_async(decomposed[2],decomposed[1]),"completed")
+			var msg = ""
+			for i in range(2,decomposed.size()):
+				msg += decomposed[i] + " "
+			print(msg + "\n\n\n")
+			yield(NetworkManager.send_private_message_async(msg,decomposed[1]),"completed")
 			line_edit.text = ''
-			print("message sent!!!!!!!!!!!!!\n\n\n\n")
+
 	else:
 		NetworkManager.send_message_async(text)
 		add_message("Moi", text, 2)
@@ -63,12 +75,5 @@ func on_envoyer_pressed() -> void :
 
 func on_meta_clicked(meta : String) :
 	if meta != "":
-		# Extract the parameter from the metadata
-		var args = meta.split(",")
-		var usrname = args[0]
-		var id = args[1]
-		# Call your function with the parameter
-		private_message_setup(id,usrname)
-		
-func private_message_setup(id,usrname) -> void :
-	print("username : ", usrname, ",    id : ",id)
+		line_edit.text = ''
+		line_edit.text =  '/mp ' + meta + ' '
