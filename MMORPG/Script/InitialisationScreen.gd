@@ -74,7 +74,7 @@ func _on_request_completed(result, response_code, headers, body):
 		
 		NetworkManager._user_name = "ZEDD" #replace with username
 		
-		label.text = "authentication"
+		label.text = "authentication..."
 		yield(NetworkManager.authentificate_async("abracadabra"),"completed") #replace with id
 		
 		label.text = "Connection to the server..."

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/character_creation.mp3-a9e2a049098098e5639f17212555aaf2.mp3str"
+
+[deps]
+
+source_file="res://Music/character_creation.mp3"
+dest_files=[ "res://.import/character_creation.mp3-a9e2a049098098e5639f17212555aaf2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

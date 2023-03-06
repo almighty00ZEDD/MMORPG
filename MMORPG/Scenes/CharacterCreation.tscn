@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Sprites/Characters/Body/body3.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Characters/accessories/hat_witch.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Shaders/Button_shader.tres" type="Shader" id=9]
 [ext_resource path="res://Sprites/arrow.png" type="Texture" id=10]
 [ext_resource path="res://Script/CharacterCreation.gd" type="Script" id=11]
+[ext_resource path="res://Music/character_creation.mp3" type="AudioStream" id=12]
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 7 )
@@ -601,6 +602,10 @@ custom_fonts/font = SubResource( 16 )
 text = "JOUER"
 align = 1
 valign = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+autoplay = true
 
 [connection signal="button_up" from="CanvasLayer/Panel/VBoxContainer/Body/previous_body" to="CanvasLayer/Player" method="_on_previous_body_button_up"]
 [connection signal="button_up" from="CanvasLayer/Panel/VBoxContainer/Body/next_body" to="CanvasLayer/Player" method="_on_next_body_button_up"]

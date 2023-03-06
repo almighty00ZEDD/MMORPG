@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Fonts/futile-pro-v1/FutilePro.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Script/ChatBox.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Fonts/liberation/LiberationSerif-Regular.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://Tilesets/Winter.tres" type="TileSet" id=8]
 [ext_resource path="res://Script/Demo.gd" type="Script" id=9]
+[ext_resource path="res://Music/winter.mp3" type="AudioStream" id=10]
 
 [sub_resource type="ShaderMaterial" id=12]
 shader = ExtResource( 3 )
@@ -241,7 +242,7 @@ margin_right = 250.0
 margin_bottom = 73.0
 
 [node name="LineEdit" type="LineEdit" parent="CanvasLayer/Panel/HBoxContainer/ChatBox/HBoxContainer"]
-margin_right = 207.0
+margin_right = 210.0
 margin_bottom = 11.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -252,8 +253,8 @@ max_length = 90
 caret_blink = true
 
 [node name="Button" type="Button" parent="CanvasLayer/Panel/HBoxContainer/ChatBox/HBoxContainer"]
-margin_left = 211.0
-margin_right = 250.0
+margin_left = 214.0
+margin_right = 250.2
 margin_bottom = 11.0
 rect_clip_content = true
 mouse_default_cursor_shape = 2
@@ -483,4 +484,8 @@ custom_styles/normal = SubResource( 39 )
 text = "BAR"
 
 [node name="camLimits" type="Position2D" parent="."]
-position = Vector2( 956, 444 )
+position = Vector2( 956, 517 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+autoplay = true

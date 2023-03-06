@@ -2,7 +2,10 @@ extends Node
 
 const KEY := "ZEDD_GAME"
 var _session  : NakamaSession
-var _client  := Nakama.create_client(KEY,"157.230.119.40",7350,"http") #modifier pour rendre compatible ac le nouveau serveur
+#var _client  := Nakama.create_client(KEY,"157.230.119.40",7350,"http") #modifier pour rendre compatible ac le nouveau serveur
+
+
+var _client  := Nakama.create_client(KEY,"zedd-games.ga",7350,"http")
 var _socket : NakamaSocket
 var _world_id = null #id de la map dans le serveur
 
@@ -126,6 +129,11 @@ func on_received_channel_message(message :  NakamaAPI.ApiChannelMessage) -> void
 	emit_signal("new_message_received",message._get_sender_id(),message.username,content)
 	
 func join_map(map : String):
+	
+	_composites.clear()
+	_positions.clear()
+	_nicknames.clear()
+	_presences.clear()
 	
 	_current_map = map
 	

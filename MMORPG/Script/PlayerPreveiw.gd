@@ -22,6 +22,12 @@ func _ready():
 	accessory.texture = composite_character.accessory_spritesheet[25]
 	shirt.texture = composite_character.shirt_spritesheet[54]
 	pants.texture = composite_character.pants_spritesheet[28]
+	
+	current_body = 0
+	current_hair = 176
+	current_accessory = 25
+	current_shirt = 54
+	current_pants = 28
 
 
 func _on_previous_body_button_up():

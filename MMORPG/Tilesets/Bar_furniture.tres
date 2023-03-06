@@ -142,7 +142,7 @@
 9/shape_one_way = false
 9/shape_one_way_margin = 0.0
 9/shapes = [  ]
-9/z_index = 0
+9/z_index = 2
 10/name = "TopDownHouse_FurnitureState1.png 10"
 10/texture = ExtResource( 1 )
 10/tex_offset = Vector2( 0, 0 )
@@ -156,7 +156,7 @@
 10/shape_one_way = false
 10/shape_one_way_margin = 0.0
 10/shapes = [  ]
-10/z_index = 0
+10/z_index = 2
 11/name = "TopDownHouse_FurnitureState1.png 11"
 11/texture = ExtResource( 1 )
 11/tex_offset = Vector2( 0, 0 )
@@ -170,7 +170,7 @@
 11/shape_one_way = false
 11/shape_one_way_margin = 0.0
 11/shapes = [  ]
-11/z_index = 0
+11/z_index = 2
 12/name = "TopDownHouse_FurnitureState1.png 12"
 12/texture = ExtResource( 1 )
 12/tex_offset = Vector2( 0, 0 )
@@ -184,7 +184,7 @@
 12/shape_one_way = false
 12/shape_one_way_margin = 0.0
 12/shapes = [  ]
-12/z_index = 0
+12/z_index = 2
 13/name = "TopDownHouse_FurnitureState1.png 13"
 13/texture = ExtResource( 1 )
 13/tex_offset = Vector2( 0, 0 )
@@ -366,7 +366,7 @@
 25/shape_one_way = false
 25/shape_one_way_margin = 0.0
 25/shapes = [  ]
-25/z_index = 0
+25/z_index = 2
 26/name = "TopDownHouse_FurnitureState1.png 26"
 26/texture = ExtResource( 1 )
 26/tex_offset = Vector2( 0, 0 )
@@ -380,7 +380,7 @@
 26/shape_one_way = false
 26/shape_one_way_margin = 0.0
 26/shapes = [  ]
-26/z_index = 0
+26/z_index = 2
 27/name = "TopDownHouse_FurnitureState1.png 27"
 27/texture = ExtResource( 1 )
 27/tex_offset = Vector2( 0, 0 )
@@ -394,7 +394,7 @@
 27/shape_one_way = false
 27/shape_one_way_margin = 0.0
 27/shapes = [  ]
-27/z_index = 0
+27/z_index = 2
 28/name = "TopDownHouse_FurnitureState1.png 28"
 28/texture = ExtResource( 1 )
 28/tex_offset = Vector2( 0, 0 )
@@ -422,7 +422,7 @@
 29/shape_one_way = false
 29/shape_one_way_margin = 0.0
 29/shapes = [  ]
-29/z_index = 0
+29/z_index = 2
 30/name = "TopDownHouse_FurnitureState1.png 30"
 30/texture = ExtResource( 1 )
 30/tex_offset = Vector2( 0, 0 )
@@ -436,7 +436,7 @@
 30/shape_one_way = false
 30/shape_one_way_margin = 0.0
 30/shapes = [  ]
-30/z_index = 0
+30/z_index = 2
 31/name = "TopDownHouse_FurnitureState1.png 31"
 31/texture = ExtResource( 1 )
 31/tex_offset = Vector2( 0, 0 )
@@ -450,7 +450,7 @@
 31/shape_one_way = false
 31/shape_one_way_margin = 0.0
 31/shapes = [  ]
-31/z_index = 0
+31/z_index = 2
 32/name = "TopDownHouse_FurnitureState1.png 32"
 32/texture = ExtResource( 1 )
 32/tex_offset = Vector2( 0, 0 )
@@ -520,7 +520,7 @@
 36/shape_one_way = false
 36/shape_one_way_margin = 0.0
 36/shapes = [  ]
-36/z_index = 0
+36/z_index = 2
 37/name = "TopDownHouse_FurnitureState1.png 37"
 37/texture = ExtResource( 1 )
 37/tex_offset = Vector2( 0, 0 )
@@ -534,7 +534,7 @@
 37/shape_one_way = false
 37/shape_one_way_margin = 0.0
 37/shapes = [  ]
-37/z_index = 0
+37/z_index = 2
 38/name = "TopDownHouse_FurnitureState1.png 38"
 38/texture = ExtResource( 1 )
 38/tex_offset = Vector2( 0, 0 )
@@ -548,7 +548,7 @@
 38/shape_one_way = false
 38/shape_one_way_margin = 0.0
 38/shapes = [  ]
-38/z_index = 0
+38/z_index = 2
 39/name = "TopDownHouse_FurnitureState1.png 39"
 39/texture = ExtResource( 1 )
 39/tex_offset = Vector2( 0, 0 )
@@ -562,7 +562,7 @@
 39/shape_one_way = false
 39/shape_one_way_margin = 0.0
 39/shapes = [  ]
-39/z_index = 0
+39/z_index = 2
 40/name = "TopDownHouse_FurnitureState1.png 40"
 40/texture = ExtResource( 1 )
 40/tex_offset = Vector2( 0, 0 )
@@ -716,7 +716,7 @@
 50/shape_one_way = false
 50/shape_one_way_margin = 0.0
 50/shapes = [  ]
-50/z_index = 0
+50/z_index = 2
 51/name = "TopDownHouse_FurnitureState1.png 51"
 51/texture = ExtResource( 1 )
 51/tex_offset = Vector2( 0, 0 )
@@ -730,7 +730,7 @@
 51/shape_one_way = false
 51/shape_one_way_margin = 0.0
 51/shapes = [  ]
-51/z_index = 0
+51/z_index = 2
 52/name = "TopDownHouse_FurnitureState1.png 52"
 52/texture = ExtResource( 1 )
 52/tex_offset = Vector2( 0, 0 )
@@ -744,7 +744,7 @@
 52/shape_one_way = false
 52/shape_one_way_margin = 0.0
 52/shapes = [  ]
-52/z_index = 0
+52/z_index = 2
 53/name = "TopDownHouse_FurnitureState1.png 53"
 53/texture = ExtResource( 1 )
 53/tex_offset = Vector2( 0, 0 )
@@ -758,7 +758,7 @@
 53/shape_one_way = false
 53/shape_one_way_margin = 0.0
 53/shapes = [  ]
-53/z_index = 0
+53/z_index = 2
 54/name = "TopDownHouse_FurnitureState1.png 54"
 54/texture = ExtResource( 1 )
 54/tex_offset = Vector2( 0, 0 )
@@ -772,7 +772,7 @@
 54/shape_one_way = false
 54/shape_one_way_margin = 0.0
 54/shapes = [  ]
-54/z_index = 0
+54/z_index = 2
 55/name = "TopDownHouse_FurnitureState1.png 55"
 55/texture = ExtResource( 1 )
 55/tex_offset = Vector2( 0, 0 )
@@ -786,7 +786,7 @@
 55/shape_one_way = false
 55/shape_one_way_margin = 0.0
 55/shapes = [  ]
-55/z_index = 0
+55/z_index = 2
 56/name = "TopDownHouse_FurnitureState1.png 56"
 56/texture = ExtResource( 1 )
 56/tex_offset = Vector2( 0, 0 )
@@ -800,7 +800,7 @@
 56/shape_one_way = false
 56/shape_one_way_margin = 0.0
 56/shapes = [  ]
-56/z_index = 0
+56/z_index = 2
 57/name = "TopDownHouse_FurnitureState1.png 57"
 57/texture = ExtResource( 1 )
 57/tex_offset = Vector2( 0, 0 )
@@ -814,7 +814,7 @@
 57/shape_one_way = false
 57/shape_one_way_margin = 0.0
 57/shapes = [  ]
-57/z_index = 0
+57/z_index = 2
 58/name = "TopDownHouse_FurnitureState1.png 58"
 58/texture = ExtResource( 1 )
 58/tex_offset = Vector2( 0, 0 )
@@ -828,7 +828,7 @@
 58/shape_one_way = false
 58/shape_one_way_margin = 0.0
 58/shapes = [  ]
-58/z_index = 0
+58/z_index = 2
 59/name = "TopDownHouse_FurnitureState1.png 59"
 59/texture = ExtResource( 1 )
 59/tex_offset = Vector2( 0, 0 )

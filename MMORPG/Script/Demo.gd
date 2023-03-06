@@ -125,7 +125,7 @@ func on_btn1_pressed() -> void :
 			NetworkManager.send_previous_joined_presences()
 			NetworkManager.send_my_presence_info(NetworkManager._composite,NetworkManager._user_name) 
 		
-		"Bar" : 
+		"BAR" : 
 			where_to = CompositeCharacter.Bar
 			yield(NetworkManager.join_map("town"),"completed")
 			NetworkManager.send_previous_joined_presences()
@@ -145,7 +145,7 @@ func on_btn2_pressed() -> void :
 			NetworkManager.send_previous_joined_presences()
 			NetworkManager.send_my_presence_info(NetworkManager._composite,NetworkManager._user_name) 
 		
-		"Bar" : 
+		"BAR" : 
 			where_to = CompositeCharacter.Bar
 			yield(NetworkManager.join_map("town"),"completed")
 			NetworkManager.send_previous_joined_presences()

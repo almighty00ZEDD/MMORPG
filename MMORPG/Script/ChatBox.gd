@@ -33,7 +33,7 @@ func add_message(from,text,group = 0) -> void :
 		0:
 			messages_displayer.bbcode_text += '[url=' + from + ']'+ from + '[/url] '
 		1:
-			messages_displayer.bbcode_text += "mp de " +'[url=' + from + ']'+ from + '[/url] '
+			messages_displayer.bbcode_text += "pm from " +'[url=' + from + ']'+ from + '[/url] '
 		2:
 			messages_displayer.bbcode_text += ' ' + from
 	
@@ -56,7 +56,12 @@ func on_text_entered(text : String)  -> void:
 			print(msg + "\n\n\n")
 			yield(NetworkManager.send_private_message_async(msg,decomposed[1]),"completed")
 			line_edit.text = ''
-
+		else:
+			NetworkManager.send_message_async(text)
+			add_message("Moi", text, 2)
+			emit_signal("player_spoke", text)
+			line_edit.text = ''
+	
 	else:
 		NetworkManager.send_message_async(text)
 		add_message("Moi", text, 2)
@@ -68,6 +73,28 @@ func on_envoyer_pressed() -> void :
 	if text == "" or text.strip_edges() == "": 
 		line_edit.text = ''
 		return
+	
+	var decomposed : Array = text.split(" ",false)
+	
+	if decomposed.size() >= 3 :
+		if (decomposed[0] == "/mp") and decomposed[1] != "" and decomposed[2] != "":
+			var msg = ""
+			for i in range(2,decomposed.size()):
+				msg += decomposed[i] + " "
+			print(msg + "\n\n\n")
+			yield(NetworkManager.send_private_message_async(msg,decomposed[1]),"completed")
+			line_edit.text = ''
+		else:
+			NetworkManager.send_message_async(text)
+			add_message("Moi", text, 2)
+			emit_signal("player_spoke", text)
+			line_edit.text = ''
+	
+	else:
+		NetworkManager.send_message_async(text)
+		add_message("Moi", text, 2)
+		emit_signal("player_spoke", text)
+		line_edit.text = ''
 
 	add_message(username, text, 2)
 	emit_signal("player_spoke", text)
