@@ -10,6 +10,7 @@ local OpCodes = {
     PREVIOUS_PRESENCES = 1,
     NEW_PRESENCE = 2,
     UPDATE_POSITION = 3,
+    PLAYER_REACTED = 4,
 }
 
 
@@ -18,6 +19,7 @@ function map_logic.match_init(context  ,params)
     presences  =  {},
     nicknames  =  {},
     positions = {},
+    composites = {},
   }
   local tick_rate =  10
   local label =  params.name
@@ -38,9 +40,10 @@ function  map_logic.match_join(context ,dispatcher, tick, state, presences)
     state.presences[presence.user_id]  =  presence
 
     state.positions[presence.user_id] = {
-            ["x"] = 0,
-            ["y"] = 0
+            ["x"] = 150,
+            ["y"] = 150
         }
+ 
   end
 
   nb_players = nb_players + 1
@@ -53,6 +56,7 @@ function  map_logic.match_leave(context ,dispatcher, tick, state, presences)
     state.nicknames[presence.user_id] = nil
     state.presences[presence.user_id]  =  nil
     state.positions[presence.user_id]  =  nil
+    state.composites[presence.user_id] = nil
   end
 
   nb_players = nb_players - 1
@@ -73,12 +77,19 @@ function map_logic.match_loop(context,  dispatcher, tick, state,  messages)
 
         if op_code == OpCodes.NEW_PRESENCE then
           local encoded  = encode_new_presence(state,decoded)
+	  state.nicknames[decoded.id] = decoded.nickname
+	  state.composites[decoded.id] = decoded.composite
           dispatcher.broadcast_message(OpCodes.NEW_PRESENCE,encoded)
         end
 
         if op_code == OpCodes.UPDATE_POSITION then
-          update_position(state,decoded)
-          dispatcher.broadcast_message(OpCodes.NEW_PRESENCE,decoded)
+          local encoded = update_position(state,decoded)
+          dispatcher.broadcast_message(OpCodes.UPDATE_POSITION,encoded)
+        end
+
+	if op_code == OpCodes.PLAYER_REACTED then
+	  local encoded = diffuse(decoded)
+	  dispatcher.broadcast_message(OpCodes.PLAYER_REACTED,encoded)
         end
         
       end
@@ -113,9 +124,8 @@ function encode_previous_presences(state)
   local data = {
         ["presences"] = state.presences,
         ["nicknames"] = state.nicknames,
-        ["victories"] = state.victories,
-        ["game_states"] = state.game_states,
-        ["colors"] = state.colors
+        ["positions"] = state.positions,
+        ["composites"] = state.composites,
     }
 
     return nakama.json_encode(data)
@@ -126,18 +136,10 @@ end
 function encode_new_presence(state,decoded)
 
   local _id = decoded.id
-  local _nickname = decoded.nickname
-  state.nicknames[_id] = _nickname
-  state.victories[_id] = 0
-  state.game_states[_id]  = "connected"
-
-  state.colors[_id] = assign_color(state.colors)
-
 
   local data = {
-        ["presence"] = state.presences[_id],
-        color  = state.colors[_id],
-        nickname = _nickname,
+        composite  = decoded.composite,
+        nickname = decoded.nickname,
         id = _id,
     }
 
@@ -148,6 +150,14 @@ end
 --updates the positions server side then broacast them to everyone
 function update_position(state,decoded)
   state.positions[decoded.id] = decoded.pos
+  
+  local data = {
+       id = decoded.id,
+       pos = decoded.pos,
+   }
+
+  return  nakama.json_encode(data)
+
 end
 
 --less frequent messages from the client designed to only be relayed to the others without
@@ -160,3 +170,4 @@ end
 --]==]
 
 return map_logic
+
